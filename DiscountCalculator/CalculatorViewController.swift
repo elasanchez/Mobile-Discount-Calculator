@@ -52,7 +52,6 @@ class CalculatorViewController: UIViewController
     
     override func viewDidAppear(_ animated: Bool)
     {
-        let data = discountProcess.shared
         if(data.price != 0)
         {
             priceTextField.text = String(data.price)
@@ -109,8 +108,17 @@ class CalculatorViewController: UIViewController
         getData()
         data.calculate()
         
-        originalPriceDisplayLabel.text = String(data.originalTotalPrice)
-        discountedPriceDisplayLabel.text = String(data.discountedPrice)
+        if(data.originalTotalPrice >= 0 && data.discountedPrice >= 0)
+        {
+            originalPriceDisplayLabel.text = "Original Price: $\(data.originalTotalPrice)"
+            discountedPriceDisplayLabel.text = "Discounted Price: $\(data.discountedPrice)"
+        }
+        else
+        {
+            originalPriceDisplayLabel.text = "Invalid transaction,"
+            discountedPriceDisplayLabel.text = "try again."
+        }
+        
     }
   
     @IBAction func unwindToMainMenu(sender: UIStoryboardSegue)
