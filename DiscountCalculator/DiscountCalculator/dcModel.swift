@@ -109,15 +109,15 @@ class discountProcess
     
     func calculate()
     {
+       
+        
         //get data from global var and store output in a variable
         let discountPrice = price * (percentDiscount/100 + additionalDiscount/100)
         let taxRate = price * (tax/100)
-        self._discountedPrice = price + taxRate - discountPrice - flatDiscount
-        print("discounted ")
-        print(_discountedPrice)
-        self._originalTotalPrice  = price + tax
-        print("originaTotalPrice")
-        print(_originalTotalPrice)
+        
+            self._discountedPrice = price + taxRate - discountPrice - flatDiscount
+            self._originalTotalPrice  = price + tax
+        
     }
     
     

@@ -58,14 +58,14 @@ class GraphView: UIView {
         context.fill(CGRect(x: leftGuide,y: topGuide, width: screenWidth - 32.0, height: screenHeight - 88.0))
         
         //in pts not pix
-        let discountHeight:CGFloat =  (screenHeight - 88.0) * CGFloat((data.originalTotalPrice - data.discountedPrice)/data._originalTotalPrice);
-        let discountedHeight:CGFloat = (screenHeight - 88.0) * CGFloat(data.discountedPrice/data._originalTotalPrice);
+        let discountHeight:CGFloat =  (screenHeight - 16) * CGFloat((data.originalTotalPrice - data.discountedPrice)/data._originalTotalPrice);
+        let discountedHeight:CGFloat = (screenHeight - 16) * CGFloat(data.discountedPrice/data._originalTotalPrice);
         
+        context.setFillColor(0x447c2a)
+        context.fill(CGRect(x: screenWidth/2,y: topGuide, width: screenWidth/2 - leftGuide, height: discountHeight))
         context.setFillColor(0xf4eb42)
         context.fill(CGRect(x: screenWidth/2, y: discountHeight, width: screenWidth/2 - leftGuide, height: discountedHeight))
-        context.setFillColor(0x447c2a)
-        context.fill(CGRect(x: screenWidth/2,y: topGuide, width: screenWidth/2 - leftGuide, height: discountedHeight))
-        
+
         
 //        //Draw Text
 //        let myText = "Cyan Box"

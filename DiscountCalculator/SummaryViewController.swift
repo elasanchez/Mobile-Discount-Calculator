@@ -33,11 +33,17 @@ class SummaryViewController: UIViewController
         //view.addGestureRecognizer(swipeLeft)
         view.addGestureRecognizer(swipeRight)
         
-        finalDisplayLabel.text = "$ \(data.originalTotalPrice)"
-        flatDiscountDisplay.text = "$ \(data.originalTotalPrice - data.discountedPrice)"
-        discountPercentageDisplay.text = String(format: "%.2f",((data.originalTotalPrice - data.discountedPrice)/data.originalTotalPrice)*100) + "%"
-        finalDiscountedDisplay.text = "$ \(data.discountedPrice)"
-        finalPricePercentageDisplay.text = String(format: "%.2f",(data.discountedPrice/data.originalTotalPrice)*100) + "%"
+        
+        
+        if(data.discountedPrice >= 0 && data.originalTotalPrice >= 0)
+        {
+            finalDisplayLabel.text = "$ \(data.originalTotalPrice)"
+            flatDiscountDisplay.text = "$ \(data.originalTotalPrice - data.discountedPrice)"
+            discountPercentageDisplay.text = String(format: "%.2f",((data.originalTotalPrice - data.discountedPrice)/data.originalTotalPrice)*100) + "%"
+            finalDiscountedDisplay.text = "$ \(data.discountedPrice)"
+            finalPricePercentageDisplay.text = String(format: "%.2f",(data.discountedPrice/data.originalTotalPrice)*100) + "%"
+        }
+
         
     }
     
