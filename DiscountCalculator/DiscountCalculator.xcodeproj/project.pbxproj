@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A69024E1E7DF69500125451 /* dcModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A69024D1E7DF69500125451 /* dcModel.swift */; };
+		2A6902721E7E899D00125451 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6902711E7E899D00125451 /* GraphView.swift */; };
 		2ACD0F7B1E739F94004B63AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD0F7A1E739F94004B63AA /* AppDelegate.swift */; };
 		2ACD0F801E739F94004B63AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACD0F7E1E739F94004B63AA /* Main.storyboard */; };
 		2ACD0F821E739F94004B63AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACD0F811E739F94004B63AA /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A69024D1E7DF69500125451 /* dcModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dcModel.swift; sourceTree = "<group>"; };
+		2A6902711E7E899D00125451 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		2ACD0F771E739F94004B63AA /* DiscountCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscountCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACD0F7A1E739F94004B63AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ACD0F7F1E739F94004B63AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,10 +60,12 @@
 		2ACD0F791E739F94004B63AA /* DiscountCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				2A69024D1E7DF69500125451 /* dcModel.swift */,
 				2ACD0F7A1E739F94004B63AA /* AppDelegate.swift */,
 				2ACD0F901E73A495004B63AA /* SummaryViewController.swift */,
 				2ACD0F8E1E73A419004B63AA /* CalculatorViewController.swift */,
 				2ACD0F7E1E739F94004B63AA /* Main.storyboard */,
+				2A6902711E7E899D00125451 /* GraphView.swift */,
 				2ACD0F811E739F94004B63AA /* Assets.xcassets */,
 				2ACD0F831E739F94004B63AA /* LaunchScreen.storyboard */,
 				2ACD0F861E739F94004B63AA /* Info.plist */,
@@ -139,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6902721E7E899D00125451 /* GraphView.swift in Sources */,
+				2A69024E1E7DF69500125451 /* dcModel.swift in Sources */,
 				2ACD0F8F1E73A419004B63AA /* CalculatorViewController.swift in Sources */,
 				2ACD0F7B1E739F94004B63AA /* AppDelegate.swift in Sources */,
 				2ACD0F911E73A495004B63AA /* SummaryViewController.swift in Sources */,
@@ -303,6 +311,7 @@
 				2ACD0F8B1E739F94004B63AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

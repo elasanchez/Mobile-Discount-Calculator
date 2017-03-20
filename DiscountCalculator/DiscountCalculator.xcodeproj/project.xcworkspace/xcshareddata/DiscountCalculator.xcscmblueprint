@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "66B135F9D2AEE4EF9278E56FE34FE88FDE9691FF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "66B135F9D2AEE4EF9278E56FE34FE88FDE9691FF" : 9223372036854775807,
+    "9B1151B080CDDE9C36251A557C21B400D717403D" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8063EC72-ECEE-45BF-B4A4-8DE3ADA9E4B5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "66B135F9D2AEE4EF9278E56FE34FE88FDE9691FF" : "Mobile-Discount-Calculator\/",
+    "9B1151B080CDDE9C36251A557C21B400D717403D" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DiscountCalculator",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DiscountCalculator\/DiscountCalculator.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/elasanchez\/Mobile-Discount-Calculator.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "66B135F9D2AEE4EF9278E56FE34FE88FDE9691FF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/elasanchez\/ieee-workshop.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9B1151B080CDDE9C36251A557C21B400D717403D"
+    }
+  ]
+}

@@ -12,16 +12,13 @@ class SummaryViewController: UIViewController
 {
 
     
-    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var flatDiscountDisplay: UILabel!
+    @IBOutlet weak var discountPercentageDisplay: UILabel!
+    @IBOutlet weak var finalPricePercentageDisplay: UILabel!
+    @IBOutlet weak var finalDisplayLabel: UILabel!
+    @IBOutlet weak var finalDiscountedDisplay: UILabel!
  
-    var priceString = String()
-    var flatDiscountString = String()
-    var percentDiscountString = String()
-    var additionalDiscountString = String()
-    var taxString = String()
-    var discountedPriceString = String()
-    
-    
+    var data = discountProcess.shared
     
     override func viewDidLoad()
     {
@@ -36,28 +33,18 @@ class SummaryViewController: UIViewController
         //view.addGestureRecognizer(swipeLeft)
         view.addGestureRecognizer(swipeRight)
         
-    }
-
-    
-    //pass data to the next view controller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        let DestinationViewController : CalculatorViewController  = segue.destination as! CalculatorViewController
+        finalDisplayLabel.text = "$ \(data.originalTotalPrice)"
+        flatDiscountDisplay.text = "$ \(data.originalTotalPrice - data.discountedPrice)"
+        discountPercentageDisplay.text = String(format: "%.2f",((data.originalTotalPrice - data.discountedPrice)/data.originalTotalPrice)*100) + "%"
+        finalDiscountedDisplay.text = "$ \(data.discountedPrice)"
+        finalPricePercentageDisplay.text = String(format: "%.2f",(data.discountedPrice/data.originalTotalPrice)*100) + "%"
         
-        //pass raw data as string
-        DestinationViewController.priceString = self.priceString
-        DestinationViewController.flatDiscountString = self.flatDiscountString
-        DestinationViewController.percentDiscountString = self.percentDiscountString
-        DestinationViewController.additionalDiscountString = self.additionalDiscountString
-        DestinationViewController.taxString = self.taxString
-        
-        DestinationViewController.discountedPriceString = discountedPriceString
     }
     
     //swipe func
     func handleSwipe(_ sender: UIGestureRecognizer)
     {
-        performSegue(withIdentifier: "calculator", sender: self)
+        self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
 }
 

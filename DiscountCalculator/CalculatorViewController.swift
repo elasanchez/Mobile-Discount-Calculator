@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CalculatorViewController: UIViewController
 {
     
@@ -30,7 +31,10 @@ class CalculatorViewController: UIViewController
     var taxString = String()
     var discountedPriceString = String()
     
-    override func viewDidLoad() {
+    let data = discountProcess.shared
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
@@ -43,77 +47,77 @@ class CalculatorViewController: UIViewController
         
         view.addGestureRecognizer(swipeLeft)
         //view.addGestureRecognizer(swipeRight)
+       
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
-        priceTextField.text = priceString
-        flatDiscountTextField.text = flatDiscountString
-        percentDiscountTextField.text = percentDiscountString
-        additionalDiscountTextField.text = additionalDiscountString
-        taxTextField.text = taxString
+        let data = discountProcess.shared
+        if(data.price != 0)
+        {
+            priceTextField.text = String(data.price)
+            flatDiscountTextField.text = String(data.flatDiscount)
+            percentDiscountTextField.text = String(data.percentDiscount)
+            additionalDiscountTextField.text = String(data.additionalDiscount)
+            taxTextField.text = String(data.tax)
+
+        }
     }
     
     //swipe func
     func handleSwipe(_ sender: UIGestureRecognizer) {
         self.performSegue(withIdentifier: "summary", sender: self)
     }
-    
-    //pass data to the next view controller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        //let us have access to the Summary view controller variables to pass data around
-        let DestinationViewController : SummaryViewController  = segue.destination as! SummaryViewController
-        
-        //pass raw data as string
-        DestinationViewController.priceString = self.priceString
-        DestinationViewController.flatDiscountString = self.flatDiscountString
-        DestinationViewController.percentDiscountString = self.percentDiscountString
-        DestinationViewController.additionalDiscountString = self.additionalDiscountString
-        DestinationViewController.taxString = self.taxString
-        
-        DestinationViewController.discountedPriceString = discountedPriceString
-        
-    }
-    
-    func calculate()
-    {
-    
-        getData()
-        
-        let price = Float(priceString)!
-        let discountRate = Float(percentDiscountString)!
-        let additionalDiscount = Float(additionalDiscountString)!
-        let taxRate = Float(taxString)!
-        let flatDiscount = Float(flatDiscountString)!
-        
-        let discountPrice = price * (discountRate/100 + additionalDiscount/100)
-        let tax = price * (taxRate/100)
-        let discountedPrice = price + tax - discountPrice - flatDiscount
-    
-        originalPriceDisplayLabel.text = "Original Price: $\(price + tax)"
-        discountedPriceString = "Discounted Priced: $\(discountedPrice)"
-        discountedPriceDisplayLabel.text = discountedPriceString
-     }
+    //we can also store the data in the MODEL
+    /*
+     
+     //declaration
+     static let shared:DiscountCalc = DiscounCalc()
+     
+     //accessing
+     let passedData = DiscountCalc.shared
+     */
+
     
     func getData()
     {
+        //validate the textfields
+        
         priceString = priceTextField.text!
         flatDiscountString = flatDiscountTextField.text!
         percentDiscountString = percentDiscountTextField.text!
         additionalDiscountString = additionalDiscountTextField.text!
         taxString = taxTextField.text!
         
+        let price = Float(priceString)!
+        let flatDiscount = Float(flatDiscountString)!
+        let discountRate = Float(percentDiscountString)!
+        let additionalDiscount = Float(additionalDiscountString)!
+        let taxRate = Float(taxString)!
+        
+        data.price = price
+        data.flatDiscount  = flatDiscount
+        data.percentDiscount = discountRate
+        data.additionalDiscount = additionalDiscount
+        data.tax = taxRate
+        
     }
     
     //MARK: calculate
     @IBAction func calculateButton(_ sender: Any)
     {
-        calculate()
+        getData()
+        data.calculate()
+        
+        originalPriceDisplayLabel.text = String(data.originalTotalPrice)
+        discountedPriceDisplayLabel.text = String(data.discountedPrice)
     }
-
-    
-    
+  
+    @IBAction func unwindToMainMenu(sender: UIStoryboardSegue)
+    {
+        
+    }
+ 
 }
 
 
