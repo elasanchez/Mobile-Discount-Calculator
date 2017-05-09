@@ -62,6 +62,10 @@ class CalculatorViewController: UIViewController
 
         }
     }
+    //When user clicks outside of the textbox, endEditing
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     //swipe func
     func handleSwipe(_ sender: UIGestureRecognizer) {
